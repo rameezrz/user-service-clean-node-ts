@@ -1,0 +1,33 @@
+{
+  "name": "user-service-clean-node-ts",
+  "version": "1.0.0",
+  "description": "Creating an User Authentication service Backend using Nodejs and Typescript in Clean Architecture with Dependency Injection",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/infrastructure/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rameezrz/user-service-clean-node-ts.git"
+  },
+  "keywords": [
+    "clean",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "rzeee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rameezrz/user-service-clean-node-ts/issues"
+  },
+  "homepage": "https://github.com/rameezrz/user-service-clean-node-ts#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0",
+    "uuid": "^9.0.1"
+  }
+}
