@@ -1,13 +1,16 @@
-const User = require("../../domain/User");
-const { ObjectId } = require('mongodb');
+import { Collection, Db, ObjectId } from 'mongodb';
+import { User } from '../../domain/User';
 
 class MongoDBUserRepository {
-  constructor(database) {
-    this.collection = database.collection("users");
+  private collection: Collection;
+
+  constructor(database: Db) {
+    this.collection = database.collection('users');
   }
 
-  async findByEmail(email) {
+  async findByEmail(email: string): Promise<User | null> {
     const userData = await this.collection.findOne({ email });
+
     if (!userData) {
       return null;
     }
@@ -20,16 +23,15 @@ class MongoDBUserRepository {
     );
   }
 
-  async findById({user} ) {
-    const userIdObj = new ObjectId(user.userId);
-  
+  async findById(userId: string): Promise<User | null> {
+    const userIdObj = new ObjectId(userId);
+
     const userData = await this.collection.findOne({ _id: userIdObj });
-  
+
     if (!userData) {
       return null;
     }
-    
-    
+
     return new User(
       userData._id,
       userData.name,
@@ -37,10 +39,8 @@ class MongoDBUserRepository {
       userData.password
     );
   }
-  
 
-
-  async save(user) {
+  async save(user: User): Promise<User> {
     const userData = {
       name: user.name,
       email: user.email,
@@ -52,4 +52,4 @@ class MongoDBUserRepository {
   }
 }
 
-module.exports = MongoDBUserRepository;
+export { MongoDBUserRepository };

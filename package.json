@@ -31,5 +31,14 @@
     "mongodb": "^6.2.0",
     "mongoose": "^8.0.0",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.9.0",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.2.2"
   }
 }
