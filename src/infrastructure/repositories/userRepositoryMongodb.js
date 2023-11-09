@@ -21,12 +21,9 @@ class MongoDBUserRepository {
   }
 
   async findById({user} ) {
-    console.log(user,'------------');
     const userIdObj = new ObjectId(user.userId);
-    console.log('User ID:', userIdObj);
   
     const userData = await this.collection.findOne({ _id: userIdObj });
-    console.log('Query Result:', userData);
   
     if (!userData) {
       return null;

@@ -20,7 +20,7 @@ async function ensureAuthenticated(req, res, next) {
 
     if (token) {
         // If the token is valid, you can decode it and attach user data to the request
-        const user = await decodeJwt(token,'your-secret-key'); // You should implement a function to decode the token
+        const user = await decodeJwt(token,process.env.JWT_SECRET); // You should implement a function to decode the token
 
         if (user) {
             req.user = user; // Attach user data to the request
